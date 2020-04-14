@@ -1,0 +1,38 @@
+﻿@page
+@model PS7.Pages.EditCategoryModel
+@{
+    ViewData["Title"] = "EditCategory";
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<h2>Edycja kategorii o ID @Model.id</h2>
+<br />
+<br />
+<div class="container">
+    <form class="form-horizontal" method="post">
+        <div class="form-group">
+            <label asp-for="category.shortname" class="control-label col-sm2"></label>
+            <div class="col-sm-6">
+                <input asp-for="category.shortname" class="form-control">
+                <span asp-validation-for="category.shortname" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="category.longname" class="control-label col-sm2"></label>
+
+            <div class="col-sm-6">
+                <input asp-for="category.longname" data-val="false" class="form-control">
+                <span asp-validation-for="category.longname" class="text-danger"></span>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn btn-primary">Zatwierdź</button>
+            </div>
+        </div>
+    </form>
+</div>
+

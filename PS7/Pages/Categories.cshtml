@@ -1,0 +1,55 @@
+﻿@page
+@model PS7.Pages.CategoriesModel
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<h2>Kategorie</h2>
+<div class="row col-sm-12">
+    <a asp-page="CreateCategory" class="btn btn-primary btn-large">Nowa kategoria</a>
+</div>
+<br />
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model =>
+                Model.categories[0].id)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model =>
+                Model.categories[0].shortname)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model =>
+                Model.categories[0].longname)
+            </th>
+            <th scope="col">Akcja</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.categories)
+        {
+            <tr>
+                <th scope="row">@Html.DisplayFor(m => p.id)</th>
+                <td>@Html.DisplayFor(m => p.shortname)</td>
+                <td>@Html.DisplayFor(m => p.longname)</td>
+                <td>
+                    <div class="d-inline-block m-0">
+                        <form method="post">
+                            <input type="hidden" id="id" asp-for="id" value="@p.id">
+                            <button class="buttonaslink" type="submit">Edytuj </button>|
+                        </form>
+                    </div>
+                    <div class="d-inline-block m-0">
+                        <form method="post">
+                            <input type="hidden" id="id" asp-for="id" value="@p.id">
+                            <button asp-page-handler="Delete" class="buttonaslink" type="submit">Kasuj </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

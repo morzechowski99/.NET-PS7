@@ -19,7 +19,9 @@ namespace PS7.Models
         [Required(ErrorMessage = "Cena jest wymagana")]
         [Range(0, Double.MaxValue, ErrorMessage = "Cena musi być dodatnia")]
         public decimal price { get; set; }
+        
         [Required(ErrorMessage = "Kategoria jest wymagana")]
+        [Range(1,Double.MaxValue)]
         public int categoryID { get; set; }
         [Display(Name = "Kategoria")]
         public string category { get; set; }
