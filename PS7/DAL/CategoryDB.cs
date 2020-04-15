@@ -123,7 +123,7 @@ namespace PS7.DAL
                 {
                     int idd = Int32.Parse(reader["Id"].ToString());
                     string shortname = reader["shortname"].ToString();
-                    string longname = reader["shortname"].ToString();
+                    string longname = reader["longname"].ToString();
                    
                     p = new Category { id = id, shortname = shortname, longname=longname };
                     reader.Close();
